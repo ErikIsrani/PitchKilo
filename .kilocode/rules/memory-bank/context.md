@@ -14,23 +14,32 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] ESLint configuration
 - [x] Memory bank documentation
 - [x] Recipe system for common features
+- [x] Built "Get Your Company on Kilo Code" microsite (single `KiloMicrosite.tsx` component)
 
 ## Current Structure
 
 | File/Directory | Purpose | Status |
 |----------------|---------|--------|
-| `src/app/page.tsx` | Home page | ✅ Ready |
+| `src/app/page.tsx` | Renders KiloMicrosite | ✅ Ready |
 | `src/app/layout.tsx` | Root layout | ✅ Ready |
 | `src/app/globals.css` | Global styles | ✅ Ready |
+| `src/components/KiloMicrosite.tsx` | Full microsite component | ✅ Ready |
 | `.kilocode/` | AI context & recipes | ✅ Ready |
 
 ## Current Focus
 
-The template is ready. Next steps depend on user requirements:
+Microsite is live. All sections use placeholder text labeled with `data-placeholder-id` attributes, ready for copy to be dropped in.
 
-1. What type of application to build
-2. What features are needed
-3. Design/branding preferences
+### Microsite Sections
+1. **Sticky Nav** — anchor links, active section highlight on scroll
+2. **Hero** — headline + subhead placeholders
+3. **Social Proof Strip** — 6 logo placeholders + 3 stat pills
+4. **Stakeholder Selector** — 2×2 grid, animated panel (fade + slide-up, 300ms)
+5. **Comparison Table** — Kilo vs Cursor vs Copilot vs Claude Code
+6. **ROI Calculator** — 3 inputs, count-up animation on output
+7. **Objection Accordion** — 5 rows, smooth expand/collapse (200ms)
+8. **Templates** — tabs (desktop) / dropdown (mobile), copy-to-clipboard
+9. **Footer CTA** — headline + 2 buttons
 
 ## Quick Start Guide
 
@@ -85,3 +94,4 @@ export async function GET() {
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
+| 2026-05-08 | Built full "Get Your Company on Kilo Code" microsite |
