@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js Template",
-  description: "A minimal Next.js starter template",
+  title: "Get Your Company on Kilo Code",
+  description: "Everything your team needs to evaluate, pitch, and adopt Kilo Code.",
 };
 
 export default function RootLayout({
