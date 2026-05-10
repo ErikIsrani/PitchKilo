@@ -567,8 +567,8 @@ function ROICalculator() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">[ Section label ]</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">[ ROI Calculator headline ]</h2>
-          <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">[ One-sentence framing about estimating the value of switching. ]</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Does the math work for your team?</h2>
+          <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Put in your numbers. See what Kilo is worth.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -580,7 +580,7 @@ function ROICalculator() {
                 data-placeholder-id="roi-devs"
                 className="block text-white text-sm font-medium mb-2"
               >
-                [ Number of developers label ]
+                Number of developers
               </label>
               <input
                 type="number"
@@ -589,7 +589,7 @@ function ROICalculator() {
                 onChange={(e) => setDevs(Math.max(1, parseInt(e.target.value) || 1))}
                 className="w-full bg-[#0a0a0f] border border-[#2a2a35] rounded-lg px-4 py-3 text-white font-mono text-sm focus:outline-none focus:border-[#fa483a]/60 transition-colors"
               />
-              <p className="mt-1.5 text-[#a0a0a0] text-xs">[ Helper text — e.g. full-time engineers on your team ]</p>
+              <p className="mt-1.5 text-[#a0a0a0] text-xs">Include everyone who writes or reviews code</p>
             </div>
 
             {/* Hourly rate */}
@@ -598,7 +598,7 @@ function ROICalculator() {
                 data-placeholder-id="roi-rate"
                 className="block text-white text-sm font-medium mb-2"
               >
-                [ Average hourly rate label ($) ]
+                Average hourly rate (USD)
               </label>
               <div className="relative">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#a0a0a0] font-mono text-sm">$</span>
@@ -610,7 +610,7 @@ function ROICalculator() {
                   className="w-full bg-[#0a0a0f] border border-[#2a2a35] rounded-lg pl-8 pr-4 py-3 text-white font-mono text-sm focus:outline-none focus:border-[#fa483a]/60 transition-colors"
                 />
               </div>
-              <p className="mt-1.5 text-[#a0a0a0] text-xs">[ Helper text — fully-loaded hourly rate estimate ]</p>
+              <p className="mt-1.5 text-[#a0a0a0] text-xs">Fully loaded cost — salary, benefits, overhead</p>
             </div>
 
             {/* Current spend */}
@@ -619,7 +619,7 @@ function ROICalculator() {
                 data-placeholder-id="roi-spend"
                 className="block text-white text-sm font-medium mb-2"
               >
-                [ Current monthly AI tooling spend label ($) ]
+                Current monthly AI tooling spend (USD)
               </label>
               <div className="relative">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#a0a0a0] font-mono text-sm">$</span>
@@ -631,14 +631,14 @@ function ROICalculator() {
                   className="w-full bg-[#0a0a0f] border border-[#2a2a35] rounded-lg pl-8 pr-4 py-3 text-white font-mono text-sm focus:outline-none focus:border-[#fa483a]/60 transition-colors"
                 />
               </div>
-              <p className="mt-1.5 text-[#a0a0a0] text-xs">[ Helper text — total across all AI dev tools today ]</p>
+              <p className="mt-1.5 text-[#a0a0a0] text-xs">Copilot, Cursor, ChatGPT — add them up</p>
             </div>
           </div>
 
           {/* Output */}
           <div className="rounded-xl border border-[#fa483a]/30 bg-[#14141a] p-8 flex flex-col justify-between">
             <div>
-              <p className="text-[#a0a0a0] text-sm mb-2">[ Output label — e.g. Estimated annual savings ]</p>
+              <p className="text-[#a0a0a0] text-sm mb-2">Estimated annual savings</p>
               <div
                 data-placeholder-id="roi-output"
                 className={`text-5xl sm:text-6xl font-bold tracking-tight ${
@@ -648,7 +648,7 @@ function ROICalculator() {
                 {animatedSavings < 0 ? "-" : ""}
                 {fmt(Math.abs(animatedSavings))}
               </div>
-              <p className="mt-3 text-[#a0a0a0] text-xs">[ Savings calculation disclaimer / methodology note ]</p>
+              <p className="mt-3 text-[#a0a0a0] text-xs leading-relaxed">Based on 2 hours saved per developer per day at your hourly rate, minus Kilo&apos;s token costs at provider pricing.</p>
             </div>
 
             {/* Breakdown */}
@@ -670,6 +670,9 @@ function ROICalculator() {
             </div>
           </div>
         </div>
+        <p className="mt-6 text-[#a0a0a0]/60 text-xs leading-relaxed max-w-2xl">
+          This is an estimate. Actual results depend on usage, team size, and model selection. We&apos;re not going to promise you a number we can&apos;t back up.
+        </p>
       </div>
     </section>
   );
