@@ -27,27 +27,75 @@ const STAKEHOLDERS: {
     key: "eng-manager",
     icon: "⬡",
     title: "Engineering Manager",
-    desc: "[ One-line value prop for the person running the day-to-day eng team ]",
+    desc: "They want their team shipping faster. Show them the productivity case.",
   },
   {
     key: "cto",
     icon: "◈",
     title: "CTO / VP Engineering",
-    desc: "[ One-line value prop for the technical executive stakeholder ]",
+    desc: "They want no lock-in and no black boxes. Show them the technical case.",
   },
   {
     key: "cfo",
     icon: "◇",
     title: "CFO / Finance",
-    desc: "[ One-line value prop for the finance decision maker ]",
+    desc: "They want to know what it costs and what it returns. Show them the numbers.",
   },
   {
     key: "ciso",
     icon: "◉",
     title: "CISO / IT / Security",
-    desc: "[ One-line value prop for the security and compliance owner ]",
+    desc: "They want to know what leaves the building. Show them the security brief.",
   },
 ];
+
+const STAKEHOLDER_PANELS: Record<
+  StakeholderKey,
+  { headline: string; body: string; bullets: string[]; cta: string; ctaHref?: string }
+> = {
+  "eng-manager": {
+    headline: "Your team is spending time they don't have to spend.",
+    body: "Boilerplate, code review, context-switching — it adds up. Kilo handles the parts that slow developers down so they can stay on the work that actually matters.",
+    bullets: [
+      "Parallel agents let developers run multiple tasks without blocking each other",
+      "Session continuity means context doesn't get lost between devices or handoffs",
+      "Works inside the tools your team already uses — VS Code, JetBrains, CLI",
+    ],
+    cta: "See the 30-day pilot plan →",
+  },
+  cto: {
+    headline: "Open source, open pricing, no lock-in.",
+    body: "Most AI coding tools make the same bet: pick our model, pay our markup, migrate when we say so. Kilo doesn't work that way. The code is public, the pricing is pass-through, and you can point it at any model — including ones running on your own infrastructure.",
+    bullets: [
+      "500+ models available — switch based on task, cost, or compliance requirements",
+      "Self-hostable — run it entirely inside your own environment",
+      "Open source — your security team can read the code, not just the whitepaper",
+    ],
+    cta: "See the 30-day pilot plan →",
+  },
+  cfo: {
+    headline: "You're paying for developer time. This multiplies it.",
+    body: "No per-seat subscriptions. No markup on tokens. You pay provider cost for what you use — nothing more. Run the numbers below with your team size and current tooling spend.",
+    bullets: [
+      "Token-based pricing at provider cost — no markup",
+      "Replaces or consolidates other AI tooling spend",
+      "Open source core means no licensing fees",
+    ],
+    cta: "Jump to the ROI calculator →",
+    ctaHref: "#roi",
+  },
+  ciso: {
+    headline: "Your code doesn't leave unless you say so.",
+    body: "Local mode means nothing leaves the machine. Cloud agents run in your VPC. The codebase is open source — your team can audit exactly what it does and doesn't do. And because Kilo supports any model endpoint, you can point it at an on-premises or compliant model if your requirements demand it.",
+    bullets: [
+      "Local mode: code stays on the developer's machine",
+      "VPC deployment available for Teams and Enterprise",
+      "Open source: no black box, no trust-us security claims",
+      "Model flexibility: use compliant or on-prem endpoints",
+    ],
+    cta: "See the full security brief →",
+  },
+};
 
 const COMPARISON_ROWS = [
   { label: "Open source", kilo: true, cursor: false, copilot: false, claude: false },
@@ -337,8 +385,8 @@ function StakeholderSelector() {
         {/* Section header */}
         <div className="mb-12">
           <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">[ Section label ]</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">[ Stakeholder section headline ]</h2>
-          <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">[ Section subhead — select your role to see what matters most to you. ]</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Who are you pitching?</h2>
+          <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Pick the person signing off. We&apos;ll show you what matters to them.</p>
         </div>
 
         {/* 2×2 grid */}
@@ -386,38 +434,44 @@ function StakeholderSelector() {
             transform: s ? "translateY(0)" : "translateY(12px)",
           }}
         >
-          {s && (
-            <div className="mt-4 rounded-xl border border-[#2a2a35] bg-[#14141a] p-8">
-              <h3
-                data-placeholder-id={`${s}-panel-headline`}
-                className="text-2xl font-bold text-white mb-6"
-              >
-                [ {STAKEHOLDERS.find((x) => x.key === s)?.title} panel headline ]
-              </h3>
-              <ul className="space-y-3 mb-8">
-                {[1, 2, 3, 4].map((n) => (
-                  <li key={n} className="flex items-start gap-3">
-                    <span className="mt-1 w-4 h-4 rounded-sm border border-[#fa483a]/40 bg-[#fa483a]/10 shrink-0 flex items-center justify-center">
-                      <CheckIcon />
-                    </span>
-                    <span
-                      data-placeholder-id={`${s}-bullet-${n}`}
-                      className="text-[#a0a0a0] text-sm leading-relaxed"
-                    >
-                      [ Bullet point {n} — key benefit or proof point for this stakeholder ]
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <button
-                data-placeholder-id={`${s}-cta`}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#fa483a] hover:bg-[#e03e2f] text-white text-sm font-semibold transition-colors cursor-pointer"
-              >
-                [ CTA button label ]
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-              </button>
-            </div>
-          )}
+          {s && (() => {
+            const panel = STAKEHOLDER_PANELS[s];
+            return (
+              <div className="mt-4 rounded-xl border border-[#2a2a35] bg-[#14141a] p-8">
+                <h3
+                  data-placeholder-id={`${s}-panel-headline`}
+                  className="text-2xl font-bold text-white mb-3"
+                >
+                  {panel.headline}
+                </h3>
+                <p className="text-[#a0a0a0] text-sm leading-relaxed mb-6">
+                  {panel.body}
+                </p>
+                <ul className="space-y-3 mb-8">
+                  {panel.bullets.map((bullet, n) => (
+                    <li key={n} className="flex items-start gap-3">
+                      <span className="mt-1 w-4 h-4 rounded-sm border border-[#fa483a]/40 bg-[#fa483a]/10 shrink-0 flex items-center justify-center">
+                        <CheckIcon />
+                      </span>
+                      <span
+                        data-placeholder-id={`${s}-bullet-${n + 1}`}
+                        className="text-[#a0a0a0] text-sm leading-relaxed"
+                      >
+                        {bullet}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  data-placeholder-id={`${s}-cta`}
+                  onClick={() => panel.ctaHref && smoothScrollTo(panel.ctaHref)}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#fa483a] hover:bg-[#e03e2f] text-white text-sm font-semibold transition-colors cursor-pointer"
+                >
+                  {panel.cta}
+                </button>
+              </div>
+            );
+          })()}
         </div>
       </div>
     </section>
