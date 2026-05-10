@@ -116,16 +116,56 @@ const OBJECTIONS = [
 
 const TEMPLATES: Record<TemplateKey, { label: string; content: string }> = {
   slack: {
-    label: "Slack message",
-    content: `[ Slack message template placeholder — this is a short, casual internal message a developer would send to their manager or team Slack channel pitching Kilo Code. It should cover the key benefit in 3–5 sentences and feel like a real message, not a brochure. ]`,
+    label: "Slack to manager",
+    content: `hey — i've been using kilo code for a few weeks and it's meaningfully changed how fast i'm shipping. wanted to flag it as something worth looking at for the team.
+
+it's open source, works in vs code and jetbrains, and you pay token costs at provider rates — no per-seat markup. we could run a low-lift pilot with [number] of us for 30 days without disrupting anything.
+
+happy to send more info or jump on a quick call if you want the details. worth 15 minutes?`,
   },
   "email-manager": {
     label: "Email to manager",
-    content: `[ Email to manager template placeholder — subject line, greeting, body paragraphs covering the problem, the solution, ROI justification, and a clear ask. Signed off professionally. ]`,
+    content: `Subject: Worth looking at — AI coding tool that might save the team real time
+
+Hi [Name],
+
+I've been using Kilo Code for the past few weeks and wanted to make a case for getting the team on it.
+
+The short version: it's an open-source AI coding assistant that works across VS Code, JetBrains, and CLI. Unlike Copilot or Cursor, you're not locked into one model or paying per-seat markups — you pay token costs at provider rates and can switch models anytime.
+
+A few things that stood out to me:
+- Parallel agents mean I can work on multiple tasks without context-switching
+- Session continuity keeps my work in sync across devices
+- The codebase is open source, so security can audit it directly
+
+I'd suggest a 30-day pilot with [number] developers. No migration, no disruption — just a side-by-side comparison with what we're already using.
+
+Happy to put together a fuller brief or jump on a call. Let me know if it's worth 15 minutes.
+
+[Your name]`,
   },
   "email-leadership": {
     label: "Email to leadership",
-    content: `[ Email to leadership template placeholder — executive-level email covering strategic value, cost comparison, security posture, and a recommended next step. Suitable for forwarding to a CTO or VP. ]`,
+    content: `Subject: Open-source AI coding platform — case for a pilot
+
+Hi [Name],
+
+I wanted to flag Kilo Code as something worth evaluating at the team level.
+
+It's an open-source agentic coding platform — VS Code, JetBrains, CLI, and web — with a few properties that differentiate it from what most teams are using:
+
+- Open pricing: you pay token costs at provider rates, no markup
+- Model freedom: 500+ models, switch anytime, point it at on-prem endpoints if needed
+- Open source: MIT-licensed, fully auditable, self-hostable
+- No lock-in: if we ever want to move off it, the license allows forking and self-hosting
+
+It's already at 1M users and is the #1 app on OpenRouter. This isn't an early-stage bet.
+
+I'd like to propose a 30-day pilot with [number] developers. I can put together an ROI brief and security summary if that would help move it forward.
+
+Worth a conversation?
+
+[Your name]`,
   },
 };
 
@@ -781,8 +821,8 @@ function TemplatesSection() {
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
           <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">[ Section label ]</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">[ Templates section headline ]</h2>
-          <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">[ Section subhead — use these templates to pitch Kilo internally. ]</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Ready to send.</h2>
+          <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Pick your format. Edit the brackets. Hit send.</p>
         </div>
 
         {/* Copy all button */}
@@ -843,18 +883,11 @@ function TemplatesSection() {
         <div className="rounded-b-xl md:rounded-t-none rounded-xl border border-[#2a2a35] border-t-0 md:border-t-0 bg-[#14141a] overflow-hidden">
           {tabKeys.map((key) => (
             <div key={key} className={activeTab === key ? "block" : "hidden"}>
-              <div className="p-6 sm:p-8">
-                <pre
-                  data-placeholder-id={`template-${key}`}
-                  className="text-[#a0a0a0] text-sm leading-relaxed whitespace-pre-wrap font-sans"
-                >
-                  {TEMPLATES[key].content}
-                </pre>
-              </div>
-              <div className="px-6 sm:px-8 pb-6 sm:pb-8 flex justify-end border-t border-[#2a2a35] pt-4">
+              <div className="relative p-6 sm:p-8">
+                {/* Copy button — top-right of text block */}
                 <button
                   onClick={() => handleCopy(key)}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#fa483a] hover:bg-[#e03e2f] text-white text-sm font-medium transition-colors cursor-pointer"
+                  className="absolute top-4 right-4 sm:top-6 sm:right-6 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[#2a2a35] bg-[#0a0a0f] text-[#a0a0a0] hover:text-white hover:border-[#fa483a]/50 text-xs font-medium transition-colors cursor-pointer"
                 >
                   {copiedTab === key ? (
                     <>
@@ -862,15 +895,26 @@ function TemplatesSection() {
                     </>
                   ) : (
                     <>
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="3" width="8" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5 3V2.5A1.5 1.5 0 0 1 6.5 1h4A1.5 1.5 0 0 1 12 2.5v7A1.5 1.5 0 0 1 10.5 11H10" stroke="currentColor" strokeWidth="1.3" /></svg>
-                      Copy to clipboard
+                      <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><rect x="2" y="3" width="8" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5 3V2.5A1.5 1.5 0 0 1 6.5 1h4A1.5 1.5 0 0 1 12 2.5v7A1.5 1.5 0 0 1 10.5 11H10" stroke="currentColor" strokeWidth="1.3" /></svg>
+                      Copy
                     </>
                   )}
                 </button>
+                <pre
+                  data-placeholder-id={`template-${key}`}
+                  className="text-[#a0a0a0] text-sm leading-relaxed whitespace-pre-wrap font-sans pr-20"
+                >
+                  {TEMPLATES[key].content}
+                </pre>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Note below tabs */}
+        <p className="mt-4 text-[#a0a0a0]/60 text-xs italic">
+          These are starting points, not scripts. Change whatever doesn&apos;t sound like you.
+        </p>
       </div>
     </section>
   );
