@@ -424,7 +424,7 @@ function StakeholderSelector() {
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="mb-12">
-          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it's for</p>
+          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it&apos;s for</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Who are you pitching?</h2>
           <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Pick the person signing off. We&apos;ll show you what matters to them.</p>
         </div>
@@ -525,7 +525,7 @@ function ComparisonTable() {
     <section className="py-24 px-6 bg-[#14141a]">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it's for</p>
+          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it&apos;s for</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">How it stacks up</h2>
           <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">The only open-source, model-agnostic coding agent with zero markup on API costs.</p>
         </div>
@@ -606,7 +606,7 @@ function ROICalculator() {
     <section id="roi" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it's for</p>
+          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it&apos;s for</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Does the math work for your team?</h2>
           <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Put in your numbers. See what Kilo is worth.</p>
         </div>
@@ -729,8 +729,8 @@ function ObjectionHandler() {
     <section className="py-24 px-6 bg-[#14141a]">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
-          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it's for</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Questions they're going to ask.</h2>
+          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it&apos;s for</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Questions they&apos;re going to ask.</h2>
           <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Read these before the meeting, not during.</p>
         </div>
 
@@ -820,7 +820,7 @@ function TemplatesSection() {
     <section id="templates" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
-          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it's for</p>
+          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it&apos;s for</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Ready to send.</h2>
           <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Pick your format. Edit the brackets. Hit send.</p>
         </div>
