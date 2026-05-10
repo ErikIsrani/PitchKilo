@@ -107,11 +107,11 @@ const COMPARISON_ROWS = [
 ];
 
 const OBJECTIONS = [
-  { q: "[ Objection question 1 — security or compliance concern ]", a: "[ Detailed answer addressing the security/compliance concern with supporting evidence ]" },
-  { q: "[ Objection question 2 — cost or ROI concern ]", a: "[ Detailed answer addressing cost and return on investment with concrete numbers ]" },
-  { q: "[ Objection question 3 — integration or setup complexity ]", a: "[ Detailed answer explaining the onboarding process and integration simplicity ]" },
-  { q: "[ Objection question 4 — vendor lock-in concern ]", a: "[ Detailed answer explaining open-source nature and data portability ]" },
-  { q: "[ Objection question 5 — support or reliability concern ]", a: "[ Detailed answer covering SLA, community, and enterprise support options ]" },
+  { q: "We already pay for Copilot / Cursor.", a: "Kilo doesn't require you to rip anything out. Start with a pilot on one team and run them side by side. Most teams find they're paying for overlap — Kilo consolidates that spend at lower cost because you're paying token costs at provider rates, not per-seat markups. And unlike either of those tools, Kilo isn't locked to one model or one vendor." },
+  { q: "Is our code safe?", a: "In local mode, nothing leaves the machine. Full stop. For teams that want cloud features, agents run in your VPC. The codebase is open source — your security team can read exactly what it does and doesn't do. No black box, no 'trust our whitepaper.' If they want to audit it, here's the repo: github.com/Kilo-Org/kilocode" },
+  { q: "What if Kilo shuts down?", a: "The core is MIT-licensed. That means even if Kilo the company disappeared tomorrow, the code keeps working. You're not dependent on a vendor staying solvent. Fork it, self-host it, keep using it — the license allows all of it." },
+  { q: "What does this actually cost?", a: "Kilo itself is free and open source. You pay for the tokens you use at the rate set by the model provider — no markup. For Teams and Enterprise plans, there's a subscription that covers management features like centralized billing, usage analytics, and security controls. Token costs stay the same regardless of plan." },
+  { q: "Will this make our developers dependent on AI?", a: "Developers using AI agents ship faster, catch more bugs, and spend less time on work that doesn't require their expertise. The question isn't whether AI changes how developers work — it already has. The question is whether your team has better tools than your competitors' teams." },
 ];
 
 const TEMPLATES: Record<TemplateKey, { label: string; content: string }> = {
@@ -322,7 +322,7 @@ function Hero() {
       {/* Eyebrow */}
       <span className="inline-flex items-center gap-2 text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-6 px-3 py-1 rounded-full border border-[#2a2a35]">
         <span className="w-1.5 h-1.5 rounded-full bg-[#fa483a] animate-pulse" />
-        [ Eyebrow label ]
+        Internal pitch kit
       </span>
 
       <h1
@@ -424,7 +424,7 @@ function StakeholderSelector() {
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="mb-12">
-          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">[ Section label ]</p>
+          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it's for</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Who are you pitching?</h2>
           <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Pick the person signing off. We&apos;ll show you what matters to them.</p>
         </div>
@@ -525,9 +525,9 @@ function ComparisonTable() {
     <section className="py-24 px-6 bg-[#14141a]">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">[ Section label ]</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">[ Comparison headline ]</h2>
-          <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">[ One-sentence framing for the comparison. ]</p>
+          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it's for</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">How it stacks up</h2>
+          <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">The only open-source, model-agnostic coding agent with zero markup on API costs.</p>
         </div>
 
         <div className="overflow-x-auto rounded-xl border border-[#2a2a35]">
@@ -581,7 +581,7 @@ function ComparisonTable() {
             </tbody>
           </table>
         </div>
-        <p className="mt-3 text-[#a0a0a0] text-xs">[ Table footnote / data source disclaimer ]</p>
+        <p className="mt-3 text-[#a0a0a0] text-xs">Prices are approximate and may vary. Kilo&apos;s pricing reflects provider API cost with zero markup. All tools support VS Code.</p>
       </div>
     </section>
   );
@@ -606,7 +606,7 @@ function ROICalculator() {
     <section id="roi" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
-          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">[ Section label ]</p>
+          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it's for</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Does the math work for your team?</h2>
           <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Put in your numbers. See what Kilo is worth.</p>
         </div>
@@ -729,9 +729,9 @@ function ObjectionHandler() {
     <section className="py-24 px-6 bg-[#14141a]">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
-          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">[ Section label ]</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">[ Objections section headline ]</h2>
-          <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">[ Section subhead addressing common questions. ]</p>
+          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it's for</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Questions they're going to ask.</h2>
+          <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Read these before the meeting, not during.</p>
         </div>
 
         <div className="space-y-2">
@@ -820,7 +820,7 @@ function TemplatesSection() {
     <section id="templates" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
-          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">[ Section label ]</p>
+          <p className="text-[#fa483a] text-xs font-mono uppercase tracking-widest mb-3">Who it's for</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">Ready to send.</h2>
           <p className="mt-3 text-[#a0a0a0] text-base max-w-xl">Pick your format. Edit the brackets. Hit send.</p>
         </div>
@@ -970,9 +970,9 @@ function FooterCTA() {
         <span className="text-white font-semibold text-sm">
           kilo<span className="text-[#fa483a]">.</span>
         </span>
-        <span className="text-[#a0a0a0] text-xs">[ Footer legal / copyright line ]</span>
+        <span className="text-[#a0a0a0] text-xs">© 2026 Kilo Code. MIT License.</span>
         <div className="flex items-center gap-4">
-          {["[ Link 1 ]", "[ Link 2 ]", "[ Link 3 ]"].map((l) => (
+          {["Privacy", "Terms", "GitHub"].map((l) => (
             <span key={l} className="text-[#a0a0a0] text-xs hover:text-white cursor-pointer transition-colors">{l}</span>
           ))}
         </div>
