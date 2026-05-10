@@ -241,15 +241,35 @@ function Hero() {
         data-placeholder-id="hero-headline"
         className="text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6"
       >
-        [ Hero headline — the big, bold pitch ]
+        You use Kilo.{" "}
+        <span className="text-[#a0a0a0]">Now get your</span>{" "}
+        company on it.
       </h1>
 
       <p
         data-placeholder-id="hero-subhead"
-        className="text-lg sm:text-xl text-[#a0a0a0] max-w-2xl leading-relaxed"
+        className="text-lg sm:text-xl text-[#a0a0a0] max-w-2xl leading-relaxed mb-16"
       >
-        [ Hero subheadline — one or two sentences that expand on the headline and address the primary audience pain point. ]
+        You&apos;ve already seen what it can do. This kit gives you the business case, the talking points, and the emails — so you&apos;re not starting from scratch.
       </p>
+
+      {/* Scroll nudge — not a button */}
+      <button
+        onClick={() => smoothScrollTo("#stakeholders")}
+        className="flex flex-col items-center gap-2 text-[#a0a0a0]/60 hover:text-[#a0a0a0] transition-colors duration-200 cursor-pointer group bg-transparent border-0 p-0"
+        aria-label="Scroll to stakeholder selector"
+      >
+        <span className="text-sm tracking-wide">Who are you pitching?</span>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          className="animate-bounce"
+        >
+          <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
     </section>
   );
 }
