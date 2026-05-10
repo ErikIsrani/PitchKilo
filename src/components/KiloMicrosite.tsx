@@ -937,25 +937,32 @@ function FooterCTA() {
           data-placeholder-id="footer-headline"
           className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4"
         >
-          [ Footer CTA headline ]
+          Ready to make the case?
         </h2>
-        <p className="text-[#a0a0a0] text-lg mb-10">[ Footer subline — one compelling sentence. ]</p>
+        <p className="text-[#a0a0a0] text-lg mb-10">Start with the pilot. The rest follows.</p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
+          <a
             data-placeholder-id="footer-cta-1"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-[#fa483a] hover:bg-[#e03e2f] text-white text-sm font-semibold transition-colors cursor-pointer"
+            href="https://app.kilo.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-[#fa483a] hover:bg-[#e03e2f] text-white text-sm font-semibold transition-colors"
           >
-            [ Primary CTA button ]
+            Start a free pilot
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </button>
-          <button
+          </a>
+          <a
             data-placeholder-id="footer-cta-2"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg border border-[#2a2a35] hover:border-[#fa483a]/50 text-white text-sm font-semibold transition-colors cursor-pointer"
+            href="mailto:hi@kilocode.ai"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg border border-[#2a2a35] hover:border-[#fa483a]/50 text-white text-sm font-semibold transition-colors"
           >
-            [ Secondary CTA button ]
-          </button>
+            Talk to the Kilo team
+          </a>
         </div>
+        <p className="mt-6 text-[#a0a0a0]/60 text-sm">
+          No commitment. No migration. No sales call required unless you want one.
+        </p>
       </div>
 
       {/* Minimal footer */}
